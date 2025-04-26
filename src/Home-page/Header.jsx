@@ -6,15 +6,26 @@ import {
   FaWhatsapp,
 } from 'react-icons/fa';
 import { PiHouseLineThin } from 'react-icons/pi';
-import { FaCircleUser, FaXTwitter } from 'react-icons/fa6';
-import { CiSearch } from 'react-icons/ci';
+import { FaCircleUser, FaLocationDot, FaXTwitter } from 'react-icons/fa6';
+import { CiLocationOn, CiMail, CiSearch } from 'react-icons/ci';
+import { MdEmail } from 'react-icons/md';
 const Header = () => {
   return (
     <>
-      <div className="flex items-center justify-between px-16 bg-blue-950 text-white h-6 sticky">
+      <div className="flex items-center justify-between px-16 bg-blue-950 text-white h-6 ">
         <div className="flex gap-8 text-xs">
-          <p>info@quickhomes.com</p>
-          <p>Accra, Ghana</p>
+          <p className="flex items-center gap-1">
+            <span className="text-green-700">
+              <MdEmail />
+            </span>
+            info@quickhomes.com
+          </p>
+          <p className="flex items-center gap-1">
+            <span className="text-green-700">
+              <FaLocationDot />
+            </span>
+            Accra, Ghana
+          </p>
         </div>
         <div className="flex gap-4 text-xs h-full items-center">
           <ul className="flex gap-2">
@@ -24,7 +35,9 @@ const Header = () => {
               </a>
             </li>
             <li>
-              <FaXTwitter />
+              <a href="">
+                <FaXTwitter />
+              </a>
             </li>
             <li>
               <a href="">
