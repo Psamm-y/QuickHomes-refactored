@@ -3,7 +3,7 @@ import React from 'react';
 const Header = () => {
   return (
     <>
-      <div className="flex items-center justify-between px-16 bg-blue-950 text-white h-6">
+      <div className="flex items-center justify-between px-16 bg-blue-950 text-white h-6 sticky">
         <div className="flex gap-8 text-xs">
           <p>info@quickhomes.com</p>
           <p>Accra, Ghana</p>
