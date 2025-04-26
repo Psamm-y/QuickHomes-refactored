@@ -1,7 +1,12 @@
 import React from 'react';
 
 const Hero = () => {
-  return <div>Hero</div>;
+  return (
+    <main>
+      <div></div>
+      <div></div>
+    </main>
+  );
 };
 
 export default Hero;

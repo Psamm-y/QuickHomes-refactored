@@ -3,9 +3,9 @@ import Header from './Home-page/Header';
 
 const QuickHomes = () => {
   return (
-    <>
+    <div className="min-h-screen ">
       <Header />
-    </>
+    </div>
   );
 };
 
