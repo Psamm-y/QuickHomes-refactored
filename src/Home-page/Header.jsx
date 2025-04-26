@@ -3,24 +3,41 @@ import React from 'react';
 const Header = () => {
   return (
     <>
-      <nav className="flex items-center justify-between w-full p-4 border-b-2 sticky ">
-        <div className="basis-2xs">
+      <div className="flex items-center justify-between px-16 bg-blue-950 text-white h-6">
+        <div className="flex gap-8 text-xs">
+          <p>info@quickhomes.com</p>
+          <p>Accra, Ghana</p>
+        </div>
+        <div className="flex gap-4 text-xs h-full items-center">
+          <ul className="flex gap-2">
+            <li>f</li>
+            <li>t</li>
+            <li>i</li>
+            <li>w</li>
+          </ul>
+          <button className="bg-green-700 h-full px-2 cursor-pointer">
+            Add New Property
+          </button>
+        </div>
+      </div>
+      <nav className="flex items-center justify-between w-full p-4 border-b-2 sticky px-16">
+        <div className="basis-xl">
           <p className="text-3xl font-bold">QuickHomes</p>
         </div>
-        <div className="border-1 border-blue-300 p-2 rounded-full w-xl ">
-          <span> </span>
-          <input
-            className="w-full outline-0 px-4 "
-            type="text"
-            placeholder="Search for a house"
-          />
-        </div>
+
         <ul className="flex gap-8 cursor-pointer">
           <li className="hover:text-blue-300">Home</li>
           <li className="hover:text-blue-300">About</li>
           <li className="hover:text-blue-300">Properties</li>
           <li className="hover:text-blue-300">Contact</li>
         </ul>
+        <div className="flex gap-2">
+          <ul className="flex gap-3">
+            <li>search</li>
+            <li>profile</li>
+            <li>house</li>
+          </ul>
+        </div>
       </nav>
     </>
   );
