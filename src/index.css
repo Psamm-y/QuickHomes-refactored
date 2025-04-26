@@ -3,3 +3,8 @@
 @theme {
   --font-poppins: 'Poppins';
 }
+body {
+  background: url(./assets/broken-noise.png);
+
+  min-height: 120vh;
+}

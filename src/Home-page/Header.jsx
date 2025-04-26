@@ -55,7 +55,7 @@ const Header = () => {
           </button>
         </div>
       </div>
-      <nav className="flex items-center justify-between w-full p-4 border-b-2 sticky px-16">
+      <nav className="flex items-center justify-between w-full p-4 border-b-2 sticky top-0 px-16">
         <div className="basis-xl">
           <p className="text-3xl font-bold">QuickHomes</p>
         </div>
