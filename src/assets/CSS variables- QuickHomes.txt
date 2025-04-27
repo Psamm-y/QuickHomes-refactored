@@ -1,0 +1,14 @@
+CSS variables- QuickHomes 
+/* Backgrounds */
+  --color-primary: #1b4332; /* Dark Forest Green */
+  --bg-secondary: #f9f9f9; /* Ivory */
+
+  /* Text Colors */
+  --text-primary: #111111; /* Almost Black */
+  --text-secondary: #555555; /* Dark Gray */
+
+  /* Accent Colors */
+  --accent-gold: #d4af37; /* Brass Gold */
+
+  /* Border and Details */
+  --border-soft: #a8bdb2; /* Soft Olive Gray */
