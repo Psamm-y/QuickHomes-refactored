@@ -1,11 +1,41 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import 'tailwindcss';
 @theme {
   --font-garamond: 'Cormorant Garamond';
+  --font-poppins: 'Poppins';
+  --font-inter: 'Inter';
+  --color-bg-primary: #1b4332; /* Original Dark Green */
+  --color-bg-primary-light: #2d6a4f; /* Lighter Forest Green */
+  --color-bg-primary-lighter: #40916c; /* Even Lighter Forest Green */
+
+  /* Backgrounds - Ivory */
+  --color-bg-secondary: #f9f9f9; /* Original Ivory */
+  --color-bg-secondary-dark: #e0e0e0; /* Slightly Darker Ivory */
+  --color-bg-secondary-darker: #c7c7c7; /* More Darkened Ivory */
+
+  /* Text Colors - Almost Black */
+  --color-text-primary: #111111; /* Main Text Color */
+  --color-text-primary-light: #333333; /* Slightly Lighter Text */
+  --color-text-primary-lighter: #555555; /* More Light Text */
+
+  /* Text Colors - Secondary Dark Gray */
+  --color-text-secondary: #555555; /* Subtext */
+  --color-text-secondary-light: #777777; /* Lighter Subtext */
+  --color-text-secondary-lighter: #999999; /* Even Lighter Subtext */
+
+  /* Accent Colors - Brass Gold */
+  --color-accent-primary: #d4af37; /* Main Accent Gold */
+  --color-accent-primary-dark: #b7952f; /* Slightly Darker Gold */
+  --color-accent-primary-darker: #997b26; /* More Darkened Gold */
+
+  /* Border and Details - Soft Olive Gray */
+  --color-border-primary: #a8bdb2; /* Soft Olive Gray */
+  --color-border-primary-dark: #8fa89d; /* Slightly Darker Gray */
+  --color-border-primary-darker: #768e85; /* Even Darker Gray */
 }
 body {
   background: url(./assets/bedge-grunge.png);
-
   min-height: 120vh;
 }

@@ -12,3 +12,11 @@ CSS variables- QuickHomes
 
   /* Border and Details */
   --border-soft: #a8bdb2; /* Soft Olive Gray */
+
+  Purpose | Color | HEX Code | When to Use
+Primary Background | Dark Forest Green | #1B4332 | Hero section background, footers, overlays
+Secondary Background | Ivory | #F9F9F9 | Main background for sections (to create bright, breathable areas)
+Primary Text | Almost Black | #111111 | Headlines, main body text
+Secondary Text | Dark Gray | #555555 | Subtext, paragraph descriptions
+Accent / Buttons / Icons | Brass Gold | #D4AF37 | Call-to-action buttons, icons, decorative lines
+Border / Subtle Lines | Soft Olive Gray | #A8BDB2 | Card borders, separator lines

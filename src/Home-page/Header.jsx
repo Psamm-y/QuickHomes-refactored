@@ -12,7 +12,7 @@ import { MdEmail } from 'react-icons/md';
 const Header = () => {
   return (
     <>
-      <div className="flex items-center justify-between px-16 bg-blue-950  h-6 ">
+      <div className="flex items-center justify-between px-16 bg-blue-950 text-white h-6 ">
         <div className="flex gap-8 text-xs">
           <p className="flex items-center gap-1">
             <span className="text-green-700">
@@ -50,14 +50,14 @@ const Header = () => {
               </a>
             </li>
           </ul>
-          <button className="bg-pri h-full px-2 cursor-pointer">
+          <button className="bg-bg-primary text-white h-full px-2 cursor-pointer">
             Add New Property
           </button>
         </div>
       </div>
-      <nav className="flex items-center justify-between w-full p-4 border-b-2 sticky top-0 z-100 text-primary px-16">
+      <nav className="flex items-center justify-between w-full p-4 border-b-2 sticky top-0 z-100 px-16 font-poppins">
         <div className="basis-xl">
-          <p className="text-3xl font-bold font-garamond">QuickHomes</p>
+          <p className="text-4xl font-bold font-garamond">QuickHomes</p>
         </div>
 
         <ul className="flex gap-8 cursor-pointer">
