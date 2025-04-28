@@ -17,7 +17,7 @@
 
   /* Text Colors - Almost Black */
   --color-text-primary: #111111; /* Main Text Color */
-  --color-text-primary-light: #333333; /* Slightly Lighter Text */
+  --color-text-primary-light: 7 #333333; /* Slightly Lighter Text */
   --color-text-primary-lighter: #555555; /* More Light Text */
 
   /* Text Colors - Secondary Dark Gray */
