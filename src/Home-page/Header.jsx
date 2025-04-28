@@ -75,14 +75,16 @@ const Header = () => {
         className="flex items-center justify-between w-full p-4 border-b-2 sticky top-0 z-100 px-16 transition duration-200 "
       >
         <div className="basis-xl">
-          <p className="text-4xl font-bold font-garamond">QuickHomes</p>
+          <p className="text-4xl font-bold font-garamond text-accent-primary">
+            QuickHomes
+          </p>
         </div>
 
-        <ul className="flex gap-8 cursor-pointer font-inter">
-          <li className="hover:text-blue-300">Home</li>
-          <li className="hover:text-blue-300">About</li>
-          <li className="hover:text-blue-300">Properties</li>
-          <li className="hover:text-blue-300">Contact</li>
+        <ul className="flex gap-8 cursor-pointer font-inter  text-xl">
+          <li className="hover:text-accent-primary">Home</li>
+          <li className="hover:text-accent-primary">About</li>
+          <li className="hover:text-accent-primary">Properties</li>
+          <li className="hover:text-accent-primary">Contact</li>
         </ul>
         <div className="flex gap-2">
           <ul className="flex gap-3">
