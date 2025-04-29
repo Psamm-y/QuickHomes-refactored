@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import heroImage from '../assets/real-estate1-Photoroom.png';
 import { IoIosArrowForward } from 'react-icons/io';
 import { heroImages } from '../utils/hero-images';
 const Hero = () => {
+  const [count, setCount] = useState(0);
+
+  //set count to change after to minutes to update hero image
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCount((count) => (count + 1) % heroImages.length);
+    }, 5000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  const currentHero = heroImages[count];
   return (
     <main className="grid grid-cols-[2fr_1fr] grid-rows-[25em] p-16 mt-8">
       <div className=" min-h-16 self-center">
@@ -30,14 +43,26 @@ const Hero = () => {
         </div>
       </div>
       <div className="border-1 p-4">
-        <div className=" h-[20em] relative rounded-md bg-linear-to-r from-accent-primary to-accent-primary-darker">
+        {currentHero && (
+          <>
+            <div className=" h-[20em] relative rounded-md bg-linear-to-r from-accent-primary to-accent-primary-darker">
+              <img
+                src={currentHero.image}
+                alt="hero Image"
+                className="h-[150%] object-cover absolute bottom-0 w-full right-0 left-0 rounded-md"
+              />
+            </div>
+            <p className="text-center font-bold p-4">{currentHero.text}</p>
+          </>
+        )}
+        {/* <div className=" h-[20em] relative rounded-md bg-linear-to-r from-accent-primary to-accent-primary-darker">
           <img
             src={heroImage}
             alt="hero Image"
             className="h-[150%] object-cover absolute bottom-0 w-full right-0 left-0 rounded-md"
           />
         </div>
-        <p className="text-center font-bold p-4">Houses</p>
+        <p className="text-center font-bold p-4">Houses</p> */}
       </div>
     </main>
   );
