@@ -6,7 +6,7 @@ const Hero = () => {
       <div className=" min-h-16 self-center">
         <p className="text-6xl font-inter ">
           Homes as&nbsp;
-          <span className="text-accent-primary-darker font-extrabold">
+          <span className="text-transparent bg-gradient-to-tr from-accent-primary to-accent-primary-darker bg-clip-text font-extrabold">
             GRAND
           </span>{' '}
           as your <br className="max-sm:hidden" />
@@ -19,7 +19,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="border-1 p-4">
-        <div className="border-1 h-[20em] relative rounded-md bg-linear-to-r from-accent-primary to-accent-primary-darker">
+        <div className=" h-[20em] relative rounded-md bg-linear-to-r from-accent-primary to-accent-primary-darker">
           <img
             src={heroImage}
             alt="hero Image"

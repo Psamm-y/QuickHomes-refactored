@@ -72,10 +72,10 @@ const Header = () => {
       </div>
       <nav
         ref={refs.headerRef}
-        className="flex items-center justify-between w-full p-4 border-b-2 sticky top-0 z-100 px-16 transition duration-200 "
+        className="flex items-center justify-between w-full p-4 border-b-2 sticky top-0 z-100 px-16 transition duration-10 "
       >
         <div className="basis-xl">
-          <p className="text-4xl font-bold font-garamond text-text-primary">
+          <p className="text-4xl font-bold font-garamond text-accent-primary ">
             QuickHomes
           </p>
         </div>
