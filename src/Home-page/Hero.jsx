@@ -1,5 +1,6 @@
 import React from 'react';
 import heroImage from '../assets/real-estate1-Photoroom.png';
+import { IoIosArrowForward } from 'react-icons/io';
 const Hero = () => {
   return (
     <main className="grid grid-cols-[2fr_1fr] grid-rows-[25em] p-16 mt-8">
@@ -12,10 +13,19 @@ const Hero = () => {
           as your <br className="max-sm:hidden" />
           Dreams
         </p>
-        <p>Uncover rare spaces crafted for those who live without limits</p>
-        <div>
-          <button>Explore Listings </button>
-          <button>Get in touch</button>
+        <p className="text-text-secondary text-2xl mt-4">
+          Uncover rare spaces crafted for those who live without limits
+        </p>
+        <div className="mt-10 text-xl flex items-center gap-4">
+          <button className="flex gap-2 items-center p-3 px-8 bg-accent-primary-darker text-bg-secondary whitespace-nowrap text-nowrap">
+            Explore Listings
+            <span className="text-center">
+              <IoIosArrowForward />
+            </span>
+          </button>
+          <button className="p-3 px-8 border-accent-primary border-2 ">
+            Get in touch
+          </button>
         </div>
       </div>
       <div className="border-1 p-4">
