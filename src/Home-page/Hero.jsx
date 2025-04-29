@@ -42,7 +42,7 @@ const Hero = () => {
           </button>
         </div>
       </div>
-      <div className="border-1 p-4 overflow-hidden">
+      <div className="border-1 p-4 ">
         {currentHero && (
           <>
             <div
@@ -56,13 +56,29 @@ const Hero = () => {
                 className="h-[150%] object-cover absolute bottom-0 w-full right-0 left-0 rounded-md"
               />
             </div>
-            <p className="text-center font-bold py-4 px-2">
-              {currentHero.text}
-            </p>
-            <ul className="flex ">
-              <li className="h-2 w-2 bg-text-primary rounded-full"></li>
-              <li className="h-2 w-2 bg-text-primary rounded-full"></li>
-              <li className="h-2 w-2 bg-text-primary rounded-full"></li>
+            <p className="text-center font-bold py-2 ">{currentHero.text}</p>
+            <ul className="flex justify-center w-full gap-2">
+              <li
+                className={`h-2 w-2  rounded-full ${
+                  currentHero.Count === 0
+                    ? 'bg-accent-primary'
+                    : 'border-text-primary border-1'
+                }`}
+              ></li>
+              <li
+                className={`h-2 w-2  rounded-full ${
+                  currentHero.Count === 1
+                    ? 'bg-accent-primary'
+                    : 'border-text-primary border-1'
+                }`}
+              ></li>
+              <li
+                className={`h-2 w-2  rounded-full ${
+                  currentHero.Count === 2
+                    ? 'bg-accent-primary'
+                    : 'border-text-primary border-1'
+                }`}
+              ></li>
             </ul>
           </>
         )}
