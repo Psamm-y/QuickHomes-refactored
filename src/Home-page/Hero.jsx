@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import heroImage from '../assets/real-estate1-Photoroom.png';
+
 import { IoIosArrowForward } from 'react-icons/io';
 import { heroImages } from '../utils/hero-images';
 const Hero = () => {
@@ -9,7 +9,7 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCount((count) => (count + 1) % heroImages.length);
-    }, 5000);
+    }, 3000);
     return () => {
       clearInterval(interval);
     };
@@ -42,17 +42,28 @@ const Hero = () => {
           </button>
         </div>
       </div>
-      <div className="border-1 p-4">
+      <div className="border-1 p-4 overflow-hidden">
         {currentHero && (
           <>
-            <div className=" h-[20em] relative rounded-md bg-linear-to-r from-accent-primary to-accent-primary-darker">
+            <div
+              className={` h-[20em] relative rounded-md bg-linear-to-r from-accent-primary to-accent-primary-darker ${
+                currentHero.Count === 0 ? 'overflow-visible' : 'overflow-hidden'
+              }`}
+            >
               <img
                 src={currentHero.image}
                 alt="hero Image"
                 className="h-[150%] object-cover absolute bottom-0 w-full right-0 left-0 rounded-md"
               />
             </div>
-            <p className="text-center font-bold p-4">{currentHero.text}</p>
+            <p className="text-center font-bold py-4 px-2">
+              {currentHero.text}
+            </p>
+            <ul className="flex ">
+              <li className="h-2 w-2 bg-text-primary rounded-full"></li>
+              <li className="h-2 w-2 bg-text-primary rounded-full"></li>
+              <li className="h-2 w-2 bg-text-primary rounded-full"></li>
+            </ul>
           </>
         )}
         {/* <div className=" h-[20em] relative rounded-md bg-linear-to-r from-accent-primary to-accent-primary-darker">
