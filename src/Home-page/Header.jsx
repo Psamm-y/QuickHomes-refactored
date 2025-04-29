@@ -14,7 +14,7 @@ const Header = () => {
     headerRef: useRef(null),
   };
   const handleScroll = () => {
-    if (scrollY > 60) {
+    if (scrollY > 50) {
       refs.headerRef.current.classList.add('bg-bg-secondary');
       refs.headerRef.current.classList.add('border-border-primary');
     } else {
