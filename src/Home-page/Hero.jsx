@@ -24,7 +24,7 @@ const Hero = () => {
             </span>
           </button>
           <button className="hover:rounded-full text-text-primary rounded-md p-3 px-8 border-bg-primary hover:bg-bg-primary hover:border-bg-primary-lighter hover:text-white transition duration-300 border-2 box-border">
-            Get in touch
+            Book a call
           </button>
         </div>
       </div>
