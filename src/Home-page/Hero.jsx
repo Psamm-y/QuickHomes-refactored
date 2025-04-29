@@ -31,7 +31,7 @@ const Hero = () => {
           Uncover rare spaces crafted for those who live without limits
         </p>
         <div className="mt-10 text-xl flex items-center gap-4">
-          <button className="group hover:rounded-full ease-in-out rounded-md flex gap-2 items-center p-3 px-8 bg-bg-primary hover:bg-bg-primary-lighter transition duration-300 text-white whitespace-nowrap text-nowrap">
+          <button className="group hover:rounded-full ease-in-out rounded-md flex gap-2 items-center p-3 px-8 bg-bg-primary hover:bg-bg-primary-lighter transition duration-300 text-white whitespace-nowrap text-nowrap border-2 border-bg-primary">
             Explore Listings
             <span className=" group-hover:translate-x-4 delay-90 transition duration-200 ease-in-out m-auto">
               <IoIosArrowForward />
