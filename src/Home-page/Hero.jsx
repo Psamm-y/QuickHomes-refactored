@@ -59,24 +59,27 @@ const Hero = () => {
             <p className="text-center font-bold py-2 ">{currentHero.text}</p>
             <ul className="flex justify-center w-full gap-2">
               <li
-                className={`h-2 w-2  rounded-full ${
+                onClick={() => setCount(0)}
+                className={`h-2 w-2  rounded-full cursor-pointer ${
                   currentHero.Count === 0
                     ? 'bg-accent-primary'
-                    : 'border-text-primary border-1'
+                    : 'bg-text-secondary-light'
                 }`}
               ></li>
               <li
-                className={`h-2 w-2  rounded-full ${
+                onClick={() => setCount(1)}
+                className={`h-2 w-2  rounded-full cursor-pointer ${
                   currentHero.Count === 1
                     ? 'bg-accent-primary'
-                    : 'border-text-primary border-1'
+                    : 'bg-text-secondary-light'
                 }`}
               ></li>
               <li
-                className={`h-2 w-2  rounded-full ${
+                onClick={() => setCount(2)}
+                className={`h-2 w-2  rounded-full cursor-pointer ${
                   currentHero.Count === 2
                     ? 'bg-accent-primary'
-                    : 'border-text-primary border-1'
+                    : 'bg-text-secondary-light'
                 }`}
               ></li>
             </ul>
