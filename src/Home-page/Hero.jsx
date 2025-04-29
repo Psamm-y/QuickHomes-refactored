@@ -1,6 +1,7 @@
 import React from 'react';
 import heroImage from '../assets/real-estate1-Photoroom.png';
 import { IoIosArrowForward } from 'react-icons/io';
+import { heroImages } from '../utils/hero-images';
 const Hero = () => {
   return (
     <main className="grid grid-cols-[2fr_1fr] grid-rows-[25em] p-16 mt-8">
@@ -36,6 +37,7 @@ const Hero = () => {
             className="h-[150%] object-cover absolute bottom-0 w-full right-0 left-0 rounded-md"
           />
         </div>
+        <p className="text-center font-bold p-4">Houses</p>
       </div>
     </main>
   );
