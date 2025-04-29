@@ -13,17 +13,17 @@ const Hero = () => {
           as your <br className="max-sm:hidden" />
           Dreams
         </p>
-        <p className="text-text-secondary text-2xl mt-4">
+        <p className="text-text-secondary text-xl mt-4">
           Uncover rare spaces crafted for those who live without limits
         </p>
         <div className="mt-10 text-xl flex items-center gap-4">
-          <button className="flex gap-2 items-center p-3 px-8 bg-accent-primary-darker text-bg-secondary whitespace-nowrap text-nowrap">
+          <button className="rounded-md flex gap-2 items-center p-3 px-8 bg-bg-primary hover:bg-bg-primary-lighter transition duration-300 text-white whitespace-nowrap text-nowrap">
             Explore Listings
-            <span className="text-center">
+            <span className="m-auto">
               <IoIosArrowForward />
             </span>
           </button>
-          <button className="p-3 px-8 border-accent-primary border-2 ">
+          <button className="text-text-primary rounded-md p-3 px-8 border-bg-primary hover:bg-bg-primary hover:border-bg-primary hover:text-white transition duration-300 border-2 box-border">
             Get in touch
           </button>
         </div>

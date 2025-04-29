@@ -40,3 +40,6 @@ body {
   min-height: 120vh;
   box-sizing: border-box;
 }
+button {
+  cursor: pointer;
+}
