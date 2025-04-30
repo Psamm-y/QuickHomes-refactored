@@ -4,7 +4,14 @@ import { IoIosArrowForward } from 'react-icons/io';
 import { heroImages } from '../utils/hero-images';
 const Hero = () => {
   const [count, setCount] = useState(0);
+  const [propertyInput, setPropertyInput] = useState('');
+  const [priceInput, setPriceInput] = useState('');
+  const [locationInput, setLocationInput] = useState('');
+  const [regionInput, setRegionInput] = useState('');
 
+  const handlePropertyInput = (e) => {
+    setPropertyInput(e.target.value);
+  };
   //set count to change after to minutes to update hero image
   useEffect(() => {
     const interval = setInterval(() => {
@@ -17,7 +24,7 @@ const Hero = () => {
 
   const currentHero = heroImages[count];
   return (
-    <main className="grid grid-cols-[2fr_1fr] grid-rows-[25em] p-16 mt-8">
+    <main className="grid grid-cols-[2fr_1fr] grid-rows-[25em] p-16 mt-8 relative">
       <div className=" min-h-16 self-center">
         <p className="text-6xl font-inter ">
           Homes as&nbsp;
@@ -85,14 +92,53 @@ const Hero = () => {
             </ul>
           </>
         )}
-        {/* <div className=" h-[20em] relative rounded-md bg-linear-to-r from-accent-primary to-accent-primary-darker">
-          <img
-            src={heroImage}
-            alt="hero Image"
-            className="h-[150%] object-cover absolute bottom-0 w-full right-0 left-0 rounded-md"
+      </div>
+      <div className="h-20 bg-bg-secondary shadow-md rounded-md absolute -bottom-8 right-36 left-36 flex p-4">
+        <div className="relative">
+          <input
+            onChange={handlePropertyInput}
+            value={propertyInput}
+            placeholder="Property Type"
+            id="inputField"
+            type="text"
+            className="h-8 border-bg-secondary-darker border-1 p-2 rounded-md outline-none"
           />
+          <div className="absolute top-8 bg-bg-secondary border-1 border-bg-secondary-darker w-full rounded-md">
+            <span
+              onClick={() => setPropertyInput('House')}
+              className="block p-2 hover:bg-accent-primary transition duration-150"
+            >
+              House
+            </span>
+            <span
+              onClick={() => setPropertyInput('Apartment')}
+              className="block p-2 hover:bg-accent-primary transition duration-150"
+            >
+              Apartment
+            </span>
+            <span
+              onClick={() => setPropertyInput('Land')}
+              className="block p-2 hover:bg-accent-primary transition duration-150"
+            >
+              Land
+            </span>
+            <span
+              onClick={() => setPropertyInput('Hostel')}
+              className="block p-2 hover:bg-accent-primary transition duration-150"
+            >
+              Hostel
+            </span>
+            <span
+              onClick={() => setPropertyInput('Office Space')}
+              className="block p-2 hover:bg-accent-primary transition duration-150"
+            >
+              Office Space
+            </span>
+          </div>
         </div>
-        <p className="text-center font-bold p-4">Houses</p> */}
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </main>
   );
