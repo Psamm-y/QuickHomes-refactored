@@ -8,7 +8,18 @@ const Hero = () => {
   const [priceInput, setPriceInput] = useState('');
   const [locationInput, setLocationInput] = useState('');
   const [regionInput, setRegionInput] = useState('');
-
+  //toggel between displaying dropdown for property input
+  const [isPropertyFocused, setPropertyFocused] = useState(false);
+  //dropdown on focus
+  const handleFocus = () => {
+    setPropertyFocused(true);
+  };
+  //dropdown delays a bit to dissapear on Blur (unfocus)
+  const handleBlur = () => {
+    setTimeout(() => {
+      setPropertyFocused(false);
+    }, 200);
+  };
   const handlePropertyInput = (e) => {
     setPropertyInput(e.target.value);
   };
@@ -96,6 +107,8 @@ const Hero = () => {
       <div className="h-20 bg-bg-secondary shadow-md rounded-md absolute -bottom-8 right-36 left-36 flex p-4">
         <div className="relative">
           <input
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             onChange={handlePropertyInput}
             value={propertyInput}
             placeholder="Property Type"
@@ -103,38 +116,40 @@ const Hero = () => {
             type="text"
             className="h-8 border-bg-secondary-darker border-1 p-2 rounded-md outline-none"
           />
-          <div className="absolute top-8 bg-bg-secondary border-1 border-bg-secondary-darker w-full rounded-md">
-            <span
-              onClick={() => setPropertyInput('House')}
-              className="block p-2 hover:bg-accent-primary transition duration-150"
-            >
-              House
-            </span>
-            <span
-              onClick={() => setPropertyInput('Apartment')}
-              className="block p-2 hover:bg-accent-primary transition duration-150"
-            >
-              Apartment
-            </span>
-            <span
-              onClick={() => setPropertyInput('Land')}
-              className="block p-2 hover:bg-accent-primary transition duration-150"
-            >
-              Land
-            </span>
-            <span
-              onClick={() => setPropertyInput('Hostel')}
-              className="block p-2 hover:bg-accent-primary transition duration-150"
-            >
-              Hostel
-            </span>
-            <span
-              onClick={() => setPropertyInput('Office Space')}
-              className="block p-2 hover:bg-accent-primary transition duration-150"
-            >
-              Office Space
-            </span>
-          </div>
+          {isPropertyFocused && (
+            <ul className="absolute top-8 bg-bg-secondary border-1 border-bg-secondary-darker w-full rounded-md">
+              <li
+                onClick={() => setPropertyInput('House')}
+                className="block p-2 hover:bg-accent-primary transition duration-150"
+              >
+                House
+              </li>
+              <li
+                onClick={() => setPropertyInput('Apartment')}
+                className="block p-2 hover:bg-accent-primary transition duration-150"
+              >
+                Apartment
+              </li>
+              <li
+                onClick={() => setPropertyInput('Land')}
+                className="block p-2 hover:bg-accent-primary transition duration-150"
+              >
+                Land
+              </li>
+              <li
+                onClick={() => setPropertyInput('Hostel')}
+                className="block p-2 hover:bg-accent-primary transition duration-150"
+              >
+                Hostel
+              </li>
+              <li
+                onClick={() => setPropertyInput('Office Space')}
+                className="block p-2 hover:bg-accent-primary transition duration-150"
+              >
+                Office Space
+              </li>
+            </ul>
+          )}
         </div>
         <div></div>
         <div></div>
