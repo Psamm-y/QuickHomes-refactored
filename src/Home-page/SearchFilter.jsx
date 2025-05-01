@@ -5,8 +5,8 @@ const SearchFilter = () => {
   const [propertyInput, setPropertyInput] = useState('');
   const [priceInput, setPriceInput] = useState('');
   const [locationInput, setLocationInput] = useState('');
-  const [minAmount, setMinAmount] = useState(0);
-  const [maxAmount, setMaxAmount] = useState(0);
+  const [minAmount, setMinAmount] = useState('');
+  const [maxAmount, setMaxAmount] = useState('');
   const priceRef = useRef(null);
   //price focus
   const [isPriceFocused, setPriceFocused] = useState(false);
