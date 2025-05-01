@@ -29,14 +29,35 @@ const SearchFilter = () => {
   };
   // max and min input change
   const handleMaxChange = (e) => {
-    setMaxAmount(e.target.value);
-    updatePriceInput(minAmount, e.target.value);
+    let newMax = parseFloat(e.target.value) || 0;
+    let newMin = minAmount;
+
+    if (newMax <= newMin) {
+      if (newMax === 0 && newMin === 0) {
+        newMin = 0;
+        newMax = 1;
+      } else {
+        newMin = Math.max(0, newMax - 1);
+      }
+    }
+
+    setMinAmount(newMin);
+    setMaxAmount(newMax);
+    updatePriceInput(newMin, newMax);
   };
   const handleMinChange = (e) => {
-    setMinAmount(e.target.value);
-    updatePriceInput(e.target.value, maxAmount);
+    let newMin = parseFloat(e.target.value) || 0;
+    let newMax = maxAmount;
+
+    if (newMin >= newMax) {
+      newMax = newMin + 1;
+    }
+
+    setMinAmount(newMin);
+    setMaxAmount(newMax);
+    updatePriceInput(newMin, newMax);
   };
-  //toggle between displaying dropdown for property input
+  //toggle between displaying dropdown for property inputn
   const [isPropertyFocused, setPropertyFocused] = useState(false);
   //dropdown on focus
   const handleFocus = () => {
@@ -72,7 +93,7 @@ const SearchFilter = () => {
           </div>
 
           {isPropertyFocused && (
-            <ul className="absolute top-8 bg-bg-secondary border-1 border-bg-secondary-darker w-full rounded-md">
+            <ul className="absolute top-8 bg-bg-secondary border-1 border-bg-secondary-darker w-full rounded-md cursor-pointer">
               <li
                 onClick={() => setPropertyInput('House')}
                 className="block p-2 hover:bg-accent-primary transition duration-150"
