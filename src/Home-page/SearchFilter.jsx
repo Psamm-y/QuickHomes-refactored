@@ -80,7 +80,12 @@ const SearchFilter = () => {
             </ul>
           )}
         </div>
-        <div className="relative w-[24%] cursor-pointer">
+        <div
+          onFocus={() => setPriceFocused(true)}
+          onBlur={() => setPriceFocused(false)}
+          tabIndex={-1}
+          className="relative w-[24%] cursor-pointer"
+        >
           <div className="flex items-center h-8 border-bg-secondary-darker border-1 px-2 rounded-md ">
             <input
               type="text"
@@ -88,29 +93,31 @@ const SearchFilter = () => {
               className="w-full h-full p-2 outline-none  rounded-md cursor-pointer"
             />
           </div>
-          <div className="absolute border-1 border-bg-secondary-darker rounded-md  w-full bg-bg-secondary">
-            <ul className="flex items-center justify-between w-full p-2 ">
-              <li className="w-[40%]">
-                <input
-                  min={0}
-                  type="number"
-                  placeholder="min"
-                  className="w-full border-1 border-bg-secondary-darker outline-none px-2 rounded-md p-1"
-                />
-              </li>
-              <li>
-                <span className="text-center w-full">to</span>
-              </li>
-              <li className="w-[40%]">
-                <input
-                  min={0}
-                  type="number"
-                  placeholder="max"
-                  className="w-full border-1 border-bg-secondary-darker outline-none px-2 rounded-md p-1"
-                />
-              </li>
-            </ul>
-          </div>
+          {isPriceFocused && (
+            <div className="absolute border-1 border-bg-secondary-darker rounded-md  w-full bg-bg-secondary">
+              <ul className="flex items-center justify-between w-full p-2 ">
+                <li className="w-[40%]">
+                  <input
+                    min={0}
+                    type="number"
+                    placeholder="min"
+                    className="w-full border-1 border-bg-secondary-darker outline-none px-2 rounded-md p-1"
+                  />
+                </li>
+                <li>
+                  <span className="text-center w-full">to</span>
+                </li>
+                <li className="w-[40%]">
+                  <input
+                    min={0}
+                    type="number"
+                    placeholder="max"
+                    className="w-full border-1 border-bg-secondary-darker outline-none px-2 rounded-md p-1"
+                  />
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
         <div></div>
         <div></div>
