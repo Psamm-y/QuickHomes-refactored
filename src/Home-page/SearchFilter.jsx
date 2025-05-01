@@ -74,8 +74,9 @@ const SearchFilter = () => {
   };
   return (
     <div>
-      <div className="h-20 bg-bg-secondary shadow-md rounded-md absolute -bottom-8 right-36 left-36 flex items-center gap-4 p-4">
+      <div className="h-20 bg-bg-secondary shadow-md rounded-md absolute -bottom-8 right-36 left-36 flex items-baseline-last gap-4 p-4">
         <div className="relative w-[20%]">
+          <p>Searching for...</p>
           <div className="flex items-center h-8 border-bg-secondary-darker border-1 px-2 rounded-md ">
             <input
               onFocus={handleFocus}
@@ -93,7 +94,7 @@ const SearchFilter = () => {
           </div>
 
           {isPropertyFocused && (
-            <ul className="absolute top-8 bg-bg-secondary border-1 border-bg-secondary-darker w-full rounded-md cursor-pointer">
+            <ul className="absolute  bg-bg-secondary border-1 border-bg-secondary-darker w-full rounded-md cursor-pointer">
               <li
                 onClick={() => setPropertyInput('House')}
                 className="block p-2 hover:bg-accent-primary transition duration-150"
@@ -141,6 +142,7 @@ const SearchFilter = () => {
           tabIndex={-1}
           className="relative w-[24%] cursor-pointer"
         >
+          <p>What's your budget?</p>
           <div className="flex items-center h-8 border-bg-secondary-darker border-1 px-2 rounded-md ">
             <input
               value={priceInput}
