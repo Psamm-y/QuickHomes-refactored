@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { IoMdArrowDropdown } from 'react-icons/io';
+import { CiSearch } from 'react-icons/ci';
 import { regions } from '../utils/hero';
 const SearchFilter = () => {
   const [propertyInput, setPropertyInput] = useState('');
@@ -86,7 +87,7 @@ const SearchFilter = () => {
   };
   return (
     <div>
-      <div className="h-20 bg-bg-secondary shadow-md rounded-md absolute -bottom-12 right-36 left-36 flex items-baseline-last gap-4 p-4">
+      <div className="h-20 bg-bg-secondary shadow-md rounded-md absolute -bottom-12 right-36 left-36 flex items-baseline-last gap-6 p-4 ">
         {/* Property type */}
         <div className="relative w-[20%]">
           <p>Searching for...</p>
@@ -233,9 +234,15 @@ const SearchFilter = () => {
               onChange={(e) => setLocationInput(e.target.value)}
               type="text"
               placeholder="Location"
-              className="w-full h-full p-2 outline-none  rounded-md cursor-pointer"
+              className="w-full h-full p-2 outline-none  rounded-md "
             />
           </div>
+        </div>
+        {/* Search button */}
+        <div className="flex">
+          <button className="text-4xl bg-bg-primary text-white h-full rounded-md">
+            <CiSearch />
+          </button>
         </div>
       </div>
     </div>
