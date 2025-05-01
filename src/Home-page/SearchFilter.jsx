@@ -5,8 +5,12 @@ const SearchFilter = () => {
   const [propertyInput, setPropertyInput] = useState('');
   const [priceInput, setPriceInput] = useState('');
   const [locationInput, setLocationInput] = useState('');
-  const [regionInput, setRegionInput] = useState('');
-  //toggel between displaying dropdown for property input
+  const [minAmount, setMinAmount] = useState(0);
+  const [maxAmount, setMaxAmount] = useState(0);
+
+  //price focus
+  const [isPriceFocused, setPriceFocused] = useState(false);
+  //toggle between displaying dropdown for property input
   const [isPropertyFocused, setPropertyFocused] = useState(false);
   //dropdown on focus
   const handleFocus = () => {
@@ -88,7 +92,8 @@ const SearchFilter = () => {
             <ul className="flex items-center justify-between w-full p-2 ">
               <li className="w-[40%]">
                 <input
-                  type="text"
+                  min={0}
+                  type="number"
                   placeholder="min"
                   className="w-full border-1 border-bg-secondary-darker outline-none px-2 rounded-md p-1"
                 />
@@ -98,7 +103,8 @@ const SearchFilter = () => {
               </li>
               <li className="w-[40%]">
                 <input
-                  type="text"
+                  min={0}
+                  type="number"
                   placeholder="max"
                   className="w-full border-1 border-bg-secondary-darker outline-none px-2 rounded-md p-1"
                 />
