@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { IoMdArrowDropdown } from 'react-icons/io';
-
+import { regions } from '../utils/hero';
 const SearchFilter = () => {
   const [propertyInput, setPropertyInput] = useState('');
   const [priceInput, setPriceInput] = useState('');
@@ -57,13 +57,13 @@ const SearchFilter = () => {
     setMaxAmount(newMax);
     updatePriceInput(newMin, newMax);
   };
-  //toggle between displaying dropdown for property inputn
+  //toggle between displaying dropdown for property input
   const [isPropertyFocused, setPropertyFocused] = useState(false);
   //dropdown on focus
   const handleFocus = () => {
     setPropertyFocused(true);
   };
-  //dropdown delays a bit to dissapear on Blur (unfocus)
+  //dropdown delays a bit to alow clicking before it onBlur fires and dropdown hides
   const handleBlur = () => {
     setTimeout(() => {
       setPropertyFocused(false);
@@ -128,6 +128,7 @@ const SearchFilter = () => {
             </ul>
           )}
         </div>
+        {/* Price */}
         <div
           ref={priceRef}
           onFocus={() => setPriceFocused(true)}
@@ -182,6 +183,26 @@ const SearchFilter = () => {
             </div>
           )}
         </div>
+        <div className="relative w-[20%] cursor-pointer rounded-md">
+          <div className="flex items-center h-8 border-bg-secondary-darker border-1 px-2 rounded-md ">
+            <input
+              type="text"
+              placeholder="Region"
+              className="w-full h-full p-2 outline-none  rounded-md"
+            />
+            <span>
+              <IoMdArrowDropdown />
+            </span>
+          </div>
+          <ul className="absolute  bg-bg-secondary border-1 border-bg-secondary-darker w-full rounded-md cursor-pointer max-h-50 overflow-y-scroll">
+            {regions.map((region) => (
+              <li className="block p-2 hover:bg-accent-primary transition duration-150">
+                {region}
+              </li>
+            ))}
+          </ul>
+        </div>
+        {/* Location */}
         <div className="relative w-[20%] cursor-pointer">
           <div className="flex items-center h-8 border-bg-secondary-darker border-1 px-2 rounded-md ">
             <input
@@ -191,7 +212,6 @@ const SearchFilter = () => {
             />
           </div>
         </div>
-        <div></div>
       </div>
     </div>
   );
