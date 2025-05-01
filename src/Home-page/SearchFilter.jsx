@@ -74,7 +74,7 @@ const SearchFilter = () => {
   };
   return (
     <div>
-      <div className="h-20 bg-bg-secondary shadow-md rounded-md absolute -bottom-8 right-36 left-36 flex items-baseline-last gap-4 p-4">
+      <div className="h-20 bg-bg-secondary shadow-md rounded-md absolute -bottom-12 right-36 left-36 flex items-baseline-last gap-4 p-4">
         <div className="relative w-[20%]">
           <p>Searching for...</p>
           <div className="flex items-center h-8 border-bg-secondary-darker border-1 px-2 rounded-md ">
@@ -182,7 +182,15 @@ const SearchFilter = () => {
             </div>
           )}
         </div>
-        <div></div>
+        <div className="relative w-[20%] cursor-pointer">
+          <div className="flex items-center h-8 border-bg-secondary-darker border-1 px-2 rounded-md ">
+            <input
+              type="text"
+              placeholder="Location"
+              className="w-full h-full p-2 outline-none  rounded-md cursor-pointer"
+            />
+          </div>
+        </div>
         <div></div>
       </div>
     </div>
