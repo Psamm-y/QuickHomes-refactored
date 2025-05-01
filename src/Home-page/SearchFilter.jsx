@@ -5,6 +5,7 @@ const SearchFilter = () => {
   const [propertyInput, setPropertyInput] = useState('');
   const [priceInput, setPriceInput] = useState('');
   const [locationInput, setLocationInput] = useState('');
+  const [regionInput, setRegionInput] = useState('');
   const [minAmount, setMinAmount] = useState('');
   const [maxAmount, setMaxAmount] = useState('');
   const priceRef = useRef(null);
@@ -75,6 +76,7 @@ const SearchFilter = () => {
   return (
     <div>
       <div className="h-20 bg-bg-secondary shadow-md rounded-md absolute -bottom-12 right-36 left-36 flex items-baseline-last gap-4 p-4">
+        {/* Property type */}
         <div className="relative w-[20%]">
           <p>Searching for...</p>
           <div className="flex items-center h-8 border-bg-secondary-darker border-1 px-2 rounded-md ">
@@ -88,7 +90,10 @@ const SearchFilter = () => {
               type="text"
               className="w-full h-full p-2 outline-none  rounded-md"
             />
-            <span>
+            <span
+              onClick={(e) => setPropertyFocused(!isPropertyFocused)}
+              className="cursor-pointer"
+            >
               <IoMdArrowDropdown />
             </span>
           </div>
@@ -187,6 +192,8 @@ const SearchFilter = () => {
           <div className="flex items-center h-8 border-bg-secondary-darker border-1 px-2 rounded-md ">
             <input
               type="text"
+              onChange={(e) => setRegionInput(e.target.value)}
+              value={regionInput}
               placeholder="Region"
               className="w-full h-full p-2 outline-none  rounded-md"
             />
@@ -206,6 +213,8 @@ const SearchFilter = () => {
         <div className="relative w-[20%] cursor-pointer">
           <div className="flex items-center h-8 border-bg-secondary-darker border-1 px-2 rounded-md ">
             <input
+              value={locationInput}
+              onChange={(e) => setLocationInput(e.target.value)}
               type="text"
               placeholder="Location"
               className="w-full h-full p-2 outline-none  rounded-md cursor-pointer"
