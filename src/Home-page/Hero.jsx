@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { IoIosArrowForward } from 'react-icons/io';
+import { IoIosArrowForward, IoMdArrowDropdown } from 'react-icons/io';
 import { heroImages } from '../utils/hero-images';
 const Hero = () => {
   const [count, setCount] = useState(0);
@@ -104,18 +104,25 @@ const Hero = () => {
           </>
         )}
       </div>
-      <div className="h-20 bg-bg-secondary shadow-md rounded-md absolute -bottom-8 right-36 left-36 flex p-4">
-        <div className="relative">
-          <input
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-            onChange={handlePropertyInput}
-            value={propertyInput}
-            placeholder="Property Type"
-            id="inputField"
-            type="text"
-            className="h-8 border-bg-secondary-darker border-1 p-2 rounded-md outline-none"
-          />
+      {/* search or filter box */}
+      <div className="h-20 bg-bg-secondary shadow-md rounded-md absolute -bottom-8 right-36 left-36 flex items-center gap-4 p-4">
+        <div className="relative w-[20%]">
+          <div className="flex items-center h-8 border-bg-secondary-darker border-1 px-2 rounded-md ">
+            <input
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              onChange={handlePropertyInput}
+              value={propertyInput}
+              placeholder="Property Type"
+              id="inputField"
+              type="text"
+              className="w-full h-full p-2 outline-none  rounded-md"
+            />
+            <span>
+              <IoMdArrowDropdown />
+            </span>
+          </div>
+
           {isPropertyFocused && (
             <ul className="absolute top-8 bg-bg-secondary border-1 border-bg-secondary-darker w-full rounded-md">
               <li
@@ -151,7 +158,36 @@ const Hero = () => {
             </ul>
           )}
         </div>
-        <div></div>
+        <div className="relative w-[24%] cursor-pointer">
+          <div className="flex items-center h-8 border-bg-secondary-darker border-1 px-2 rounded-md ">
+            <input
+              type="text"
+              placeholder="Price range"
+              className="w-full h-full p-2 outline-none  rounded-md cursor-pointer"
+            />
+          </div>
+          <div className="absolute border-1 border-bg-secondary-darker rounded-md  w-full bg-bg-secondary">
+            <ul className="flex items-center justify-between w-full p-2 ">
+              <li className="w-[40%]">
+                <input
+                  type="text"
+                  placeholder="min"
+                  className="w-full border-1 border-bg-secondary-darker outline-none px-2 rounded-md p-1"
+                />
+              </li>
+              <li>
+                <span className="text-center w-full">to</span>
+              </li>
+              <li className="w-[40%]">
+                <input
+                  type="text"
+                  placeholder="max"
+                  className="w-full border-1 border-bg-secondary-darker outline-none px-2 rounded-md p-1"
+                />
+              </li>
+            </ul>
+          </div>
+        </div>
         <div></div>
         <div></div>
       </div>
