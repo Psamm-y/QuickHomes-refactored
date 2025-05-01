@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { IoMdArrowDropdown } from 'react-icons/io';
 
 const SearchFilter = () => {
@@ -7,9 +7,35 @@ const SearchFilter = () => {
   const [locationInput, setLocationInput] = useState('');
   const [minAmount, setMinAmount] = useState(0);
   const [maxAmount, setMaxAmount] = useState(0);
-
+  const priceRef = useRef(null);
   //price focus
   const [isPriceFocused, setPriceFocused] = useState(false);
+
+  //price dropdown input fields and price value
+  //function to update value for Price input field
+  const updatePriceInput = (minAmount, maxAmount) => {
+    //append zeros (.00) to amount
+    const min = parseFloat(minAmount).toFixed(2);
+    const max = parseFloat(maxAmount).toFixed(2);
+    if (min && max) {
+      setPriceInput(`GHS${min} - GHS${max}`);
+    } else if (min) {
+      setPriceInput(`From GHS${min}`);
+    } else if (max) {
+      setPriceInput(`Up to GHS${max}`);
+    } else {
+      setPriceInput('');
+    }
+  };
+  // max and min input change
+  const handleMaxChange = (e) => {
+    setMaxAmount(e.target.value);
+    updatePriceInput(minAmount, e.target.value);
+  };
+  const handleMinChange = (e) => {
+    setMinAmount(e.target.value);
+    updatePriceInput(e.target.value, maxAmount);
+  };
   //toggle between displaying dropdown for property input
   const [isPropertyFocused, setPropertyFocused] = useState(false);
   //dropdown on focus
@@ -81,13 +107,23 @@ const SearchFilter = () => {
           )}
         </div>
         <div
+          ref={priceRef}
           onFocus={() => setPriceFocused(true)}
-          onBlur={() => setPriceFocused(false)}
+          onBlur={(e) => {
+            if (
+              priceRef.current &&
+              !priceRef.current.contains(e.relatedTarget)
+            ) {
+              setPriceFocused(false);
+            }
+          }}
           tabIndex={-1}
           className="relative w-[24%] cursor-pointer"
         >
           <div className="flex items-center h-8 border-bg-secondary-darker border-1 px-2 rounded-md ">
             <input
+              value={priceInput}
+              readOnly
               type="text"
               placeholder="Price range"
               className="w-full h-full p-2 outline-none  rounded-md cursor-pointer"
@@ -98,6 +134,8 @@ const SearchFilter = () => {
               <ul className="flex items-center justify-between w-full p-2 ">
                 <li className="w-[40%]">
                   <input
+                    onChange={handleMinChange}
+                    value={minAmount}
                     min={0}
                     type="number"
                     placeholder="min"
@@ -109,6 +147,8 @@ const SearchFilter = () => {
                 </li>
                 <li className="w-[40%]">
                   <input
+                    onChange={handleMaxChange}
+                    value={maxAmount}
                     min={0}
                     type="number"
                     placeholder="max"
