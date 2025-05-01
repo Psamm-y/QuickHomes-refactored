@@ -9,6 +9,17 @@ const SearchFilter = () => {
   const [minAmount, setMinAmount] = useState('');
   const [maxAmount, setMaxAmount] = useState('');
   const priceRef = useRef(null);
+  const propertyRef = useRef(null);
+  //region focus
+  const [isRegionFocused, setRegionFocused] = useState(false);
+  const handleRegionFocus = () => {
+    setRegionFocused(true);
+  };
+  const handleRegionBlur = () => {
+    setTimeout(() => {
+      setRegionFocused(false);
+    }, 200);
+  };
   //price focus
   const [isPriceFocused, setPriceFocused] = useState(false);
 
@@ -61,7 +72,7 @@ const SearchFilter = () => {
   //toggle between displaying dropdown for property input
   const [isPropertyFocused, setPropertyFocused] = useState(false);
   //dropdown on focus
-  const handleFocus = () => {
+  const handlePropertyFocus = () => {
     setPropertyFocused(true);
   };
   //dropdown delays a bit to alow clicking before it onBlur fires and dropdown hides
@@ -81,7 +92,8 @@ const SearchFilter = () => {
           <p>Searching for...</p>
           <div className="flex items-center h-8 border-bg-secondary-darker border-1 px-2 rounded-md ">
             <input
-              onFocus={handleFocus}
+              ref={propertyRef}
+              onFocus={handlePropertyFocus}
               onBlur={handleBlur}
               onChange={handlePropertyInput}
               value={propertyInput}
@@ -90,10 +102,7 @@ const SearchFilter = () => {
               type="text"
               className="w-full h-full p-2 outline-none  rounded-md"
             />
-            <span
-              onClick={(e) => setPropertyFocused(!isPropertyFocused)}
-              className="cursor-pointer"
-            >
+            <span>
               <IoMdArrowDropdown />
             </span>
           </div>
@@ -101,31 +110,31 @@ const SearchFilter = () => {
           {isPropertyFocused && (
             <ul className="absolute  bg-bg-secondary border-1 border-bg-secondary-darker w-full rounded-md cursor-pointer">
               <li
-                onClick={() => setPropertyInput('House')}
+                onMouseDown={() => setPropertyInput('House')}
                 className="block p-2 hover:bg-accent-primary transition duration-150"
               >
                 House
               </li>
               <li
-                onClick={() => setPropertyInput('Apartment')}
+                onMouseDown={() => setPropertyInput('Apartment')}
                 className="block p-2 hover:bg-accent-primary transition duration-150"
               >
                 Apartment
               </li>
               <li
-                onClick={() => setPropertyInput('Land')}
+                onMouseDown={() => setPropertyInput('Land')}
                 className="block p-2 hover:bg-accent-primary transition duration-150"
               >
                 Land
               </li>
               <li
-                onClick={() => setPropertyInput('Hostel')}
+                onMouseDown={() => setPropertyInput('Hostel')}
                 className="block p-2 hover:bg-accent-primary transition duration-150"
               >
                 Hostel
               </li>
               <li
-                onClick={() => setPropertyInput('Office Space')}
+                onMouseDown={() => setPropertyInput('Office Space')}
                 className="block p-2 hover:bg-accent-primary transition duration-150"
               >
                 Office Space
@@ -191,6 +200,8 @@ const SearchFilter = () => {
         <div className="relative w-[20%] cursor-pointer rounded-md">
           <div className="flex items-center h-8 border-bg-secondary-darker border-1 px-2 rounded-md ">
             <input
+              onFocus={handleRegionFocus}
+              onBlur={handleRegionBlur}
               type="text"
               onChange={(e) => setRegionInput(e.target.value)}
               value={regionInput}
@@ -201,13 +212,18 @@ const SearchFilter = () => {
               <IoMdArrowDropdown />
             </span>
           </div>
-          <ul className="absolute  bg-bg-secondary border-1 border-bg-secondary-darker w-full rounded-md cursor-pointer max-h-50 overflow-y-scroll">
-            {regions.map((region) => (
-              <li className="block p-2 hover:bg-accent-primary transition duration-150">
-                {region}
-              </li>
-            ))}
-          </ul>
+          {isRegionFocused && (
+            <ul className="absolute  bg-bg-secondary border-1 border-bg-secondary-darker w-full rounded-md cursor-pointer max-h-50 overflow-y-scroll">
+              {regions.map((region) => (
+                <li
+                  onMouseDown={() => setRegionInput(region)}
+                  className="block p-2 hover:bg-accent-primary transition duration-150"
+                >
+                  {region}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
         {/* Location */}
         <div className="relative w-[20%] cursor-pointer">
