@@ -239,8 +239,8 @@ const SearchFilter = () => {
           </div>
         </div>
         {/* Search button */}
-        <div className="flex">
-          <button className="text-4xl bg-bg-primary text-white h-full rounded-md">
+        <div className="flex mt-auto">
+          <button className="text-4xl bg-bg-primary text-white h-full p-2 rounded-md">
             <CiSearch />
           </button>
         </div>
