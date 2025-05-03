@@ -14,9 +14,6 @@ const Properties = () => {
   }, []);
 
   //next and previous buttons function
-  const handleNext = () => {
-    setCount((count) => (count + 1) % image);
-  };
 
   return (
     <section className="grid grid-cols-3  bg-bg-secondary min-h-1200 p-4 mt-10">
@@ -47,13 +44,13 @@ const Properties = () => {
                   alt="image"
                   className=" object-cover h-full w-full rounded-3xl"
                 />
-                <span className="p-2 pr-4 font-medium bg-bg-primary/15 border-bg-primary backdrop-blur-xl absolute top-6 -right-2 text-white text-[0.8rem] ">
+                <span className=" p-2 pr-4 font-medium bg-bg-primary/15 border-bg-primary backdrop-blur-xl absolute top-6 -right-2 text-white text-[0.8rem] ">
                   {type}
                 </span>
-                <span className=" group-hover:block hidden text-black absolute top-[50%] right-2 bg-white/80 rounded-full shadow-text-secondary-light p-2  ">
+                <span className="cursor-pointer group-hover:block hidden text-black absolute top-[50%] right-2 bg-white/80 rounded-full shadow-text-secondary-light p-2  ">
                   <GrNext />
                 </span>
-                <span className=" group-hover:block hidden  text-black absolute top-[50%] left-2 bg-white/80 rounded-full shadow-text-secondary-light p-2  ">
+                <span className="cursor-pointer group-hover:block hidden  text-black absolute top-[50%] left-2 bg-white/80 rounded-full shadow-text-secondary-light p-2  ">
                   <GrPrevious />
                 </span>
               </div>
