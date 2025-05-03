@@ -1,13 +1,117 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import rentalHouse from '../assets/rental-houses.jpg';
 import { FaBath, FaBed, FaStar } from 'react-icons/fa';
 import { TfiRulerAlt2 } from 'react-icons/tfi';
 import { FaLocationDot, FaRegCircleUser } from 'react-icons/fa6';
 import { IoMdStar } from 'react-icons/io';
+import { properties } from '../utils/properties';
+import { GrPrevious } from 'react-icons/gr';
+import { GrNext } from 'react-icons/gr';
 const Properties = () => {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    properties.map(({ images }) => {});
+  }, []);
+
+  //next and previous buttons function
+  const handleNext = () => {
+    setCount((count) => (count + 1) % image);
+  };
+
   return (
-    <section className="bg-bg-secondary min-h-1200 p-4 mt-10">
-      <div className="w-80 h-100 overflow-hidden rounded-md ">
+    <section className="grid grid-cols-3  bg-bg-secondary min-h-1200 p-4 mt-10">
+      {properties.map(
+        (
+          {
+            images,
+            type,
+            description,
+            location,
+            price,
+            rating,
+            beds,
+            bath,
+            area,
+            author,
+          },
+          index
+        ) => (
+          <>
+            <div
+              key={index}
+              className=" w-80 h-110 overflow-hidden rounded-md "
+            >
+              <div className="group transition duration-3000  ease-in-out overflow-hidden relative h-[60%] flex rounded-3xl">
+                <img
+                  src={images[count]}
+                  alt="image"
+                  className=" object-cover h-full w-full rounded-3xl"
+                />
+                <span className="p-2 pr-4 font-medium bg-bg-primary/15 border-bg-primary backdrop-blur-xl absolute top-6 -right-2 text-white text-[0.8rem] ">
+                  {type}
+                </span>
+                <span className=" group-hover:block hidden text-black absolute top-[50%] right-2 bg-white/80 rounded-full shadow-text-secondary-light p-2  ">
+                  <GrNext />
+                </span>
+                <span className=" group-hover:block hidden  text-black absolute top-[50%] left-2 bg-white/80 rounded-full shadow-text-secondary-light p-2  ">
+                  <GrPrevious />
+                </span>
+              </div>
+              <div className="p-1">
+                <div>
+                  <h3 className="text-xl">{description}</h3>
+                  <div className="flex justify-between  mt-4">
+                    <p className="text-sm text-text-secondary flex items-center">
+                      <span>
+                        <FaLocationDot />
+                      </span>
+                      {location}
+                    </p>
+                    <p className="flex items-center text-sm font-bold text-accent-primary">
+                      <span>{rating && <IoMdStar />}</span>
+                      {rating}
+                    </p>
+                  </div>
+                  <div className=" text-sm flex gap-4 text-text-secondary">
+                    <span
+                      title="Bed(s)"
+                      className="font-bold flex items-center gap-2"
+                    >
+                      {beds && <FaBed />}
+                      {beds}
+                    </span>
+                    <span
+                      title="Bath"
+                      className="font-bold flex items-center gap-2"
+                    >
+                      {bath && <FaBath />}
+                      {bath}
+                    </span>
+                    <span
+                      title="Area"
+                      className="font-bold flex items-center gap-2"
+                    >
+                      {area && <TfiRulerAlt2 />}
+                      {area} sq. ft
+                    </span>
+                  </div>
+                  <div className="font-poppins text-xl mt-4 font-medium ">
+                    GHS {price}
+                  </div>
+                  <hr className="mt-2" />
+                  <div className="mt-2 flex items-center gap-2 text-text-primary">
+                    <span className="flex">
+                      <FaRegCircleUser />
+                    </span>
+                    <p>{author}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+        )
+      )}
+      {/* <div className="w-80 h-100 overflow-hidden rounded-md ">
         <div className="relative h-[60%] flex rounded-3xl">
           <img
             src={rentalHouse}
@@ -59,7 +163,7 @@ const Properties = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };
