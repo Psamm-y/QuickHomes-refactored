@@ -43,3 +43,7 @@ body {
 button {
   cursor: pointer;
 }
+nav {
+  /* background: url(./assets/broken-noise.png); */
+  background-color: white;
+}

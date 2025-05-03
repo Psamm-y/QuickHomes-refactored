@@ -109,7 +109,7 @@ const SearchFilter = () => {
           </div>
 
           {isPropertyFocused && (
-            <ul className="absolute  bg-bg-secondary border-1 border-bg-secondary-darker w-full rounded-md cursor-pointer">
+            <ul className="absolute z-10 bg-bg-secondary border-1 border-bg-secondary-darker w-full rounded-md cursor-pointer">
               <li
                 onMouseDown={() => setPropertyInput('House')}
                 className="block p-2 hover:bg-accent-primary transition duration-150"
@@ -214,7 +214,7 @@ const SearchFilter = () => {
             </span>
           </div>
           {isRegionFocused && (
-            <ul className="absolute  bg-bg-secondary border-1 border-bg-secondary-darker w-full rounded-md cursor-pointer max-h-50 overflow-y-scroll">
+            <ul className="absolute z-10 bg-bg-secondary border-1 border-bg-secondary-darker w-full rounded-md cursor-pointer max-h-50 overflow-y-scroll">
               {regions.map((region) => (
                 <li
                   onMouseDown={() => setRegionInput(region)}
