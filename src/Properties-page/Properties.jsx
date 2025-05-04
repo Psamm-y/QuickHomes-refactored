@@ -7,6 +7,8 @@ import { IoMdStar } from 'react-icons/io';
 import { properties } from '../utils/properties';
 import { GrPrevious } from 'react-icons/gr';
 import { GrNext } from 'react-icons/gr';
+import { AiOutlineExpandAlt } from 'react-icons/ai';
+import { MdFavoriteBorder } from 'react-icons/md';
 const Properties = () => {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -44,6 +46,15 @@ const Properties = () => {
                   alt="image"
                   className=" object-cover h-full w-full rounded-3xl"
                 />
+                <div className="absolute bottom-2 text-white bg-text-secondary-light/80 right-5">
+                  <span>
+                    <MdFavoriteBorder />
+                  </span>{' '}
+                  <span className="absolute bottom-2 text-white bg-text-secondary-light/80 right-5">
+                    <AiOutlineExpandAlt />
+                  </span>
+                </div>
+
                 <span className=" p-2 pr-4 font-medium bg-bg-primary/15 border-bg-primary backdrop-blur-xl absolute top-6 -right-2 text-white text-[0.8rem] ">
                   {type}
                 </span>
