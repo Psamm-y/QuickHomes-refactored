@@ -46,11 +46,11 @@ const Properties = () => {
                   alt="image"
                   className=" object-cover h-full w-full rounded-3xl"
                 />
-                <div className="absolute bottom-2 text-white bg-text-secondary-light/80 right-5">
-                  <span>
+                <div className="flex gap-2 items-center absolute bottom-2 text-white right-5">
+                  <span className=" bg-text-secondary-light/80 p-1 ">
                     <MdFavoriteBorder />
-                  </span>{' '}
-                  <span className="absolute bottom-2 text-white bg-text-secondary-light/80 right-5">
+                  </span>
+                  <span className=" bg-text-secondary-light/80 p-1">
                     <AiOutlineExpandAlt />
                   </span>
                 </div>
