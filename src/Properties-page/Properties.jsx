@@ -10,19 +10,31 @@ import { GrNext } from 'react-icons/gr';
 import { AiOutlineExpandAlt } from 'react-icons/ai';
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md';
 const Properties = () => {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    properties.map(({ images }) => {});
-  }, []);
+  const [imageIndexes, setImageIndexes] = useState(
+    Object.fromEntries(properties.map((_, index) => [index, 0]))
+  );
+  const [favorites, setFavorites] = useState(
+    Object.fromEntries(properties.map((_, index) => [index, false]))
+  );
 
   //function to toggle favorite
-  const favoriteButtonRef = useRef(null);
 
-  const handleClickFav = () => {};
+  const handleClickFav = (index) => {
+    setFavorites((prevfavorites) => ({
+      ...prevfavorites,
+      [index]: !prevfavorites[index],
+    }));
+  };
+
   //next and previous buttons function
-
+  const handleNext = (index) => {
+    setImageIndexes((prev) => ({
+      ...prev,
+      [index]: (prev[index] + 1) % properties[index].images.length,
+    }));
+  };
   return (
-    <section className="grid grid-cols-3  bg-bg-secondary min-h-1200 p-4 pt-12 ">
+    <section className="grid grid-cols-3  bg-bg-secondary min-h-1200 p-4 pt-12">
       {properties.map(
         (
           {
@@ -39,25 +51,25 @@ const Properties = () => {
           },
           index
         ) => (
-          <>
-            <div
-              key={index}
-              className=" w-80 h-110 overflow-hidden rounded-md "
-            >
+          <div key={index}>
+            <div className=" w-80 h-110 overflow-hidden rounded-md ">
               <div className="group transition duration-3000  ease-in-out overflow-hidden relative h-[60%] flex rounded-3xl">
                 <img
-                  src={images[count]}
+                  src={images[imageIndexes[index]]}
                   alt="image"
                   className=" object-cover h-full w-full rounded-3xl"
                 />
-                <div className="flex gap-2 items-center absolute bottom-2 text-black right-5">
-                  <span className=" bg-white/80 p-1 ">
+                <div className="flex gap-2 items-center absolute bottom-2 text-black/60 right-5 ">
+                  <span className=" bg-white/80 p-1 cursor-pointer rounded-md">
                     <MdFavorite
-                      ref={favoriteButtonRef}
-                      className="text-text-secondary-light animate"
+                      className={`${
+                        favorites[index] ? 'text-red-500 animate-bubble' : ''
+                      }
+                       `}
+                      onClick={() => handleClickFav(index)}
                     />
                   </span>
-                  <span className=" bg-white/80 p-1">
+                  <span className=" bg-white/80 p-1 cursor-pointer rounded-md">
                     <AiOutlineExpandAlt />
                   </span>
                 </div>
@@ -65,10 +77,13 @@ const Properties = () => {
                 <span className=" p-2 pr-4 font-medium bg-bg-primary/15 border-bg-primary backdrop-blur-xl absolute top-6 -right-2 text-white text-[0.8rem] ">
                   {type}
                 </span>
-                <span className="cursor-pointer group-hover:block hidden text-black absolute top-[50%] right-2 bg-white/80 rounded-full shadow-text-secondary-light p-2  ">
+                <span
+                  onClick={() => handleNext(index)}
+                  className="cursor-pointer group-hover:block hidden text-black absolute top-[50%] hover:bg-white/80 right-2 bg-white/80 rounded-full shadow-text-secondary-light p-2  "
+                >
                   <GrNext />
                 </span>
-                <span className="cursor-pointer group-hover:block hidden  text-black absolute top-[50%] left-2 bg-white/80 rounded-full shadow-text-secondary-light p-2  ">
+                <span className="cursor-pointer group-hover:block hidden  text-black absolute top-[50%] left-2 bg-white/60 hover:bg-white/80 rounded-full shadow-text-secondary-light p-2  ">
                   <GrPrevious />
                 </span>
               </div>
@@ -82,8 +97,10 @@ const Properties = () => {
                       </span>
                       {location}
                     </p>
-                    <p className="flex items-center text-sm font-bold text-accent-primary">
-                      <span>{rating && <IoMdStar />}</span>
+                    <p className="flex items-center text-sm font-bold text-text-secondary">
+                      <span className="text-accent-primary">
+                        {rating && <IoMdStar />}
+                      </span>
                       {rating}
                     </p>
                   </div>
@@ -123,7 +140,7 @@ const Properties = () => {
                 </div>
               </div>
             </div>
-          </>
+          </div>
         )
       )}
       {/* <div className="w-80 h-100 overflow-hidden rounded-md ">
