@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import rentalHouse from '../assets/rental-houses.jpg';
 import { FaBath, FaBed, FaStar } from 'react-icons/fa';
 import { TfiRulerAlt2 } from 'react-icons/tfi';
@@ -8,17 +8,21 @@ import { properties } from '../utils/properties';
 import { GrPrevious } from 'react-icons/gr';
 import { GrNext } from 'react-icons/gr';
 import { AiOutlineExpandAlt } from 'react-icons/ai';
-import { MdFavoriteBorder } from 'react-icons/md';
+import { MdFavorite, MdFavoriteBorder } from 'react-icons/md';
 const Properties = () => {
   const [count, setCount] = useState(0);
   useEffect(() => {
     properties.map(({ images }) => {});
   }, []);
 
+  //function to toggle favorite
+  const favoriteButtonRef = useRef(null);
+
+  const handleClickFav = () => {};
   //next and previous buttons function
 
   return (
-    <section className="grid grid-cols-3  bg-bg-secondary min-h-1200 p-4 mt-10">
+    <section className="grid grid-cols-3  bg-bg-secondary min-h-1200 p-4 pt-12 ">
       {properties.map(
         (
           {
@@ -46,11 +50,14 @@ const Properties = () => {
                   alt="image"
                   className=" object-cover h-full w-full rounded-3xl"
                 />
-                <div className="flex gap-2 items-center absolute bottom-2 text-white right-5">
-                  <span className=" bg-text-secondary-light/80 p-1 ">
-                    <MdFavoriteBorder />
+                <div className="flex gap-2 items-center absolute bottom-2 text-black right-5">
+                  <span className=" bg-white/80 p-1 ">
+                    <MdFavorite
+                      ref={favoriteButtonRef}
+                      className="text-text-secondary-light animate"
+                    />
                   </span>
-                  <span className=" bg-text-secondary-light/80 p-1">
+                  <span className=" bg-white/80 p-1">
                     <AiOutlineExpandAlt />
                   </span>
                 </div>
@@ -103,7 +110,7 @@ const Properties = () => {
                       {area} sq. ft
                     </span>
                   </div>
-                  <div className="font-poppins text-xl mt-4 font-medium ">
+                  <div className="font-poppins text-xl mt-4 font-medium text-bg-primary-light">
                     GHS {price}
                   </div>
                   <hr className="mt-2" />

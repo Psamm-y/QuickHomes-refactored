@@ -87,7 +87,7 @@ const SearchFilter = () => {
   };
   return (
     <div>
-      <div className="h-20 bg-bg-secondary shadow-md rounded-md absolute -bottom-12 right-36 left-36 flex items-baseline-last gap-6 p-4 ">
+      <div className="z-10 h-20 bg-bg-secondary shadow-md rounded-md absolute -bottom-10 right-36 left-36 flex items-baseline-last gap-6 p-4 ">
         {/* Property type */}
         <div className="relative w-[20%]">
           <p>Searching for...</p>
@@ -155,7 +155,6 @@ const SearchFilter = () => {
               setPriceFocused(false);
             }
           }}
-          tabIndex={-1}
           className="relative w-[24%] cursor-pointer"
         >
           <p>What's your budget?</p>
