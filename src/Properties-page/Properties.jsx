@@ -33,6 +33,13 @@ const Properties = () => {
       [index]: (prev[index] + 1) % properties[index].images.length,
     }));
   };
+
+  const handlePrevious = (index) => {
+    setImageIndexes((prev) => ({
+      ...prev,
+      [index]: (prev[index] + 1) % properties[index].images.length,
+    }));
+  };
   return (
     <section className="grid grid-cols-3  bg-bg-secondary min-h-1200 p-4 pt-12">
       {properties.map(
@@ -57,7 +64,7 @@ const Properties = () => {
                 <img
                   src={images[imageIndexes[index]]}
                   alt="image"
-                  className=" object-cover h-full w-full rounded-3xl"
+                  className=" object-cover h-full w-full rounded-3xl transition duration-1000"
                 />
                 <div className="flex gap-2 items-center absolute bottom-2 text-black/60 right-5 ">
                   <span className=" bg-white/80 p-1 cursor-pointer rounded-md">
@@ -79,11 +86,14 @@ const Properties = () => {
                 </span>
                 <span
                   onClick={() => handleNext(index)}
-                  className="cursor-pointer group-hover:block hidden text-black absolute top-[50%] hover:bg-white/80 right-2 bg-white/80 rounded-full shadow-text-secondary-light p-2  "
+                  className="transition duration-200 cursor-pointer group-hover:block hidden text-black absolute top-[50%] hover:bg-white/80 right-2 bg-white/60 rounded-full shadow-text-secondary-light p-2  "
                 >
                   <GrNext />
                 </span>
-                <span className="cursor-pointer group-hover:block hidden  text-black absolute top-[50%] left-2 bg-white/60 hover:bg-white/80 rounded-full shadow-text-secondary-light p-2  ">
+                <span
+                  onClick={() => handlePrevious(index)}
+                  className="transition duration-200 cursor-pointer group-hover:block hidden  text-black absolute top-[50%] left-2 bg-white/60 hover:bg-white/80 rounded-full shadow-text-secondary-light p-2  "
+                >
                   <GrPrevious />
                 </span>
               </div>
